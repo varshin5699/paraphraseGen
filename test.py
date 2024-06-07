@@ -126,7 +126,7 @@ if __name__ == '__main__':
             seed = seed.cuda()
 
             results, scores = rvae.sampler(batch_loader,batch_loader_2, 50, seed, args.use_cuda,i,beam_size,n_best)
-            
+            print(scores)
             for tt in results:
                 '''
                 for k in range(3):
@@ -145,3 +145,4 @@ if __name__ == '__main__':
                     else :
                         print ('generate sentence:     '+sen)      
         print ('\n')
+        
