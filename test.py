@@ -33,6 +33,8 @@ if __name__ == '__main__':
     #Path to test file ---
     parser.add_argument('--test-file', type=str, default='data/test.txt', metavar='NS',
                         help='test file path (default: data/test.txt)')
+    parser.add_argument('--para-file', type=str, default='data/super/test_2.txt', metavar='NS',
+                        help='paraphrase test file path (default: data/super/test_2.txt)')
     parser.add_argument('--save-model', type=str, default='./trained_RVAE', metavar='NS',
                         help='trained model save path (default: ./trained_RVAE)')
     args = parser.parse_args()
@@ -71,7 +73,8 @@ if __name__ == '__main__':
 
     ''' ============================ BatchLoader for Question-2 ===============================================
     '''
-    data_files = ['data/super/train_2.txt']
+    data_files = [args.para_file]
+   # data_files = ['data/super/train_2.txt']
 
     idx_files = ['data/super/words_vocab_2.pkl',
                       'data/super/characters_vocab_2.pkl']
