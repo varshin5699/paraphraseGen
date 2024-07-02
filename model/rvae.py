@@ -82,11 +82,11 @@ class RVAE(nn.Module):
             
             context , h_0 , c_0 = self.encoder(encoder_input, None)
             
-            State = (h_0,c_0) #Final state of Encoder-1 原始句子编码
-            context_2 , _ , _ = self.encoder_2( encoder_input_2, State )   #Encoder_2 for Ques_2  接下去跟释义句编码
+            #State = (h_0,c_0) #Final state of Encoder-1 原始句子编码
+            #context_2 , _ , _ = self.encoder_2( encoder_input_2, State )   #Encoder_2 for Ques_2  接下去跟释义句编码
             
-            mu = self.context_to_mu(context_2)
-            logvar = self.context_to_logvar(context_2)
+            mu = self.context_to_mu(context)
+            logvar = self.context_to_logvar(context)
             std = t.exp(0.5 * logvar)
 
             z = Variable(t.randn([batch_size, self.params.latent_variable_size]))
